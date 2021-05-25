@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="pet 2" path="/pet" id="896f5b29-30b5-45ca-900a-0c713eb160e9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="896f5b29-30b5-45ca-900a-0c713eb160e9fileName">pet-2</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="f1cf7a8c-7061-409b-b5a9-b7d815574d67" method="PUT">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>404 415</con:status>
+      <con:params/>
+      <con:element>apiResponse</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:pet="https://petstore.swagger.io/v2/v2/pet">pet:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="408711d8-8e9f-4363-b12e-463a3568ad59" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://petstore.swagger.io/v2</con:endpoint>
+      <con:request>{
+  "id": 0,
+  "category": {
+    "id": 234,
+    "name": "dog"
+  },
+  "name": "dog",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 456,
+      "name": "cow"
+    }
+  ],
+  "status": "available"
+}</con:request>
+      <con:originalUri>https://petstore.swagger.io/v2/v2/pet</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder/>
+    </con:request>
+  </con:method>
+</con:resource>

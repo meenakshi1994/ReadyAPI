@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="dc355acf-2354-4ba7-8934-47a4e09ee5e2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 2" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dc355acf-2354-4ba7-8934-47a4e09ee5e2fileName">TestCase-2</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Groovy Script" id="8f29747a-2252-44ad-bbb8-2c8ea009472a">
+    <con:settings/>
+    <con:config>
+      <script>0.upto(4) 
+{log.info "$it"}
+
+String[] arr = ["amit","mridang","Praveen"]
+for(i=0;i&lt;3;i++)
+{
+    log.info arr[i]
+}
+arr[1] = "preeti"
+for(i=0;i&lt;3;i++)
+{
+    log.info arr[i]
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script2" id="cf500bf2-a457-4b47-946e-6cfd899f8740">
+    <con:settings/>
+    <con:config>
+      <script>import java.io.File
+import jxl.*
+//read excelfile
+Workbook wb = Workbook.getWorkbook(new File('C:/Users/MeenakshiVenkatachal/Desktop/Test2.xls'))
+sheet = wb.getSheet(0)
+//log.info sheet.getRows()
+//
+//log.info sheet.getColumns()
+   for (int i=1; i&lt;sheet.getRows();i++) {
+    for (int j=0; j&lt;sheet.getColumns(); j++){
+           p=sheet.getCell(j,i).getContents()   //column and row
+     log.info p
+       }
+   }
+wb.close()</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script3" id="4897dfd7-bbae-4a86-9898-022fa3fedfb8">
+    <con:settings/>
+    <con:config>
+      <script>xs	ZA	import java.io.File
+import jxl.*
+//read excelfile
+Workbook wb = Workbook.getWorkbook(new File('C:/Users/MeenakshiVenkatachal/Desktop/Test2.xls'))
+sheet = wb.getSheet(0)
+
+ p=sheet.getCell(0,1).getContents()   //column and row
+ q=sheet.getCell(1,1).getContents() 
+ 
+testRunner.testCase.getTestStepByName("Properties").setPropertyValue("first_Name",p)
+testRunner.testCase.getTestStepByName("Properties").setPropertyValue("Last_Name",q)
+
+q = testRunner.testCase.getTestStepByName("Properties").getPropertyValue("ID")
+log.info q</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties" id="c64d1482-ad38-4b1b-b284-2d5f9a2a1fb9">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>ID</con:name>
+          <con:value/>
+        </con:property>
+        <con:property>
+          <con:name>first_Name</con:name>
+          <con:value/>
+        </con:property>
+        <con:property>
+          <con:name>Last_Name</con:name>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
